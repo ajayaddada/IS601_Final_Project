@@ -9,7 +9,6 @@ app = FastAPI()
 def db_connection():
     return sqlite3.connect("db.sqlite", check_same_thread=False)
 
-# Data models
 class Item(BaseModel):
     name: str
     price: float
@@ -23,7 +22,6 @@ class Order(BaseModel):
     customer_id: int
     notes: str
 
-# -------- Item APIs --------
 
 @app.post("/items")
 def create_item(item: Item):
@@ -68,7 +66,6 @@ def delete_item(item_id: int):
     db.close()
     return {"message": f"Deleted item {item_id}"}
 
-# -------- Customer APIs --------
 
 @app.post("/customer")
 def add_customer(customer: Customer):
@@ -113,7 +110,6 @@ def delete_customer(customer_id: int):
     db.close()
     return {"message": "Customer deleted"}
 
-# -------- Order APIs --------
 
 @app.post("/orders/{order_id}")
 def add_order(order: Order):
@@ -158,7 +154,6 @@ def remove_order(order_id: int):
     db.close()
     return {"message": f"Order {order_id} removed"}
 
-# ---------- Redirect root to docs ----------
 
 @app.get("/")
 def root_redirect():
