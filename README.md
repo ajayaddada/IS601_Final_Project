@@ -18,6 +18,8 @@ This is a backend API project built using FastAPI and SQLite, to practice REST A
 Clone the Repository
 ```bash
 git clone https://github.com/ajayaddada/IS601_Final_Project.git
+```
+```bash
 cd IS601-Final-Project
 ```
 ### Step 2:
